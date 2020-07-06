@@ -1,0 +1,39 @@
+﻿@using CustomRegionEditor.ViewModels
+@model SearchViewModel
+
+
+<div class="search-results-container flex-column">
+    @if (Model.IsSearching)
+    {
+        <table class="table">
+            @if (Model.ValidResults)
+            {
+                <thead class="thead-dark">
+                    <tr class="table-header" data-deleteurl="@Url.Action("DeleteRegionGroup", "Home")" data-editurl="@Url.Action("EditRegionGroup", "Home")">
+                        <th scope="col">Name</th>
+                        <th scope="col">Entries</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                foreach (var result in Model.SearchResults)
+                {
+                    <tbody>
+                        <tr class="search-result" regionId="@result.Id" regionName="@result.Name">
+                            <td>@result.Name</td>
+                            <td>@result.CustomRegions.Count</td>
+                            <td><input type="button" value="Edit" class="edit-button btn btn-dark" /></td>
+                            <td><input type="button" value="Delete" class="delete-button btn btn-dark" /></td>
+                        </tr>
+                    </tbody>
+                }
+            }
+            @if (!Model.ValidResults)
+            {
+                <tr>
+                    <th class="alert alert-danger" role="alert">No Results for "@Model.InvalidSearchTerm"</th>
+                </tr>
+            }
+        </table>
+    }
+</div>

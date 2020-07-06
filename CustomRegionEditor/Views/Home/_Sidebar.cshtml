@@ -1,0 +1,12 @@
+﻿
+<div class="flex-sidebar">
+    <a href="."><img src="~/Content/Images/calrom-edgy-logo.png" class="rounded home-logo" /></a>
+    <div class="search-box-container">
+        @Html.Partial("_SearchBox")
+    </div>
+    <div class="add-button-container" data-newregionurl="@Url.Action("NewCustomRegion", "Home")">
+        <button value="Add Region" class="add-region-button btn btn-dark mt-2">
+            Add Region
+        </button>
+    </div>
+</div>

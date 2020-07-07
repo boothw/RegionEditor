@@ -20,6 +20,8 @@ namespace CustomRegionEditor.EntityMapper
 
             CreateMap<StateModel, StateViewModel>();
 
+            CreateMap<StateViewModel, StateModel>();
+
             CreateMap<StateModel, State>();
         }
     }

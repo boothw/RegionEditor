@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using CustomRegionEditor.Handler.Factories;
+using CustomRegionEditor.EntityMapper;
 
 namespace CustomRegionEditor.Controllers
 {
@@ -244,9 +245,10 @@ namespace CustomRegionEditor.Controllers
                         storedRegion.Name = name;
                         storedRegion.Description = description;
 
-                        //var customRegionModel = ConvertToModel(storedRegion);
+                        var customRegionModel = AutoMapperConfiguration.GetInstance<CustomRegionGroupModel>(storedRegion);
 
-                        var result = customRegionManager.Add(new CustomRegionGroupModel());
+                        var result = customRegionManager.Add(customRegionModel);
+                        //WONT ADD WITHOUT A DB EQUIVALENT
 
                         if (result != null)
                         {

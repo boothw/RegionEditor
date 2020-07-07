@@ -17,6 +17,8 @@ namespace CustomRegionEditor.EntityMapper
         {
             CreateMap<CustomRegionGroupModel, CustomRegionGroupViewModel>();
 
+            CreateMap<CustomRegionGroupViewModel, CustomRegionGroupModel>();
+
             CreateMap<CustomRegionGroup, CustomRegionGroupModel>();
 
             CreateMap<CustomRegionGroupModel, CustomRegionGroup>();
